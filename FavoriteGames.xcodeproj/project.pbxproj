@@ -12,6 +12,8 @@
 		DF0253741D092BA80014AB10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF0253721D092BA80014AB10 /* Main.storyboard */; };
 		DF0253761D092BA80014AB10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF0253751D092BA80014AB10 /* Assets.xcassets */; };
 		DF0253791D092BA80014AB10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF0253771D092BA80014AB10 /* LaunchScreen.storyboard */; };
+		DF0253861D0B122E0014AB10 /* GiantBombAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0253851D0B122E0014AB10 /* GiantBombAPI.swift */; };
+		DF0253881D0B124F0014AB10 /* GiantBombAPIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0253871D0B124F0014AB10 /* GiantBombAPIKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		DF0253751D092BA80014AB10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF0253781D092BA80014AB10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF02537A1D092BA80014AB10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF0253851D0B122E0014AB10 /* GiantBombAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiantBombAPI.swift; sourceTree = "<group>"; };
+		DF0253871D0B124F0014AB10 /* GiantBombAPIKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiantBombAPIKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 		DF02536D1D092BA80014AB10 /* FavoriteGames */ = {
 			isa = PBXGroup;
 			children = (
+				DF0253841D0B12100014AB10 /* GiantBombAPI */,
 				DF02536E1D092BA80014AB10 /* AppDelegate.swift */,
 				DF0253701D092BA80014AB10 /* ViewController.swift */,
 				DF0253721D092BA80014AB10 /* Main.storyboard */,
@@ -62,6 +67,15 @@
 				DF02537A1D092BA80014AB10 /* Info.plist */,
 			);
 			path = FavoriteGames;
+			sourceTree = "<group>";
+		};
+		DF0253841D0B12100014AB10 /* GiantBombAPI */ = {
+			isa = PBXGroup;
+			children = (
+				DF0253851D0B122E0014AB10 /* GiantBombAPI.swift */,
+				DF0253871D0B124F0014AB10 /* GiantBombAPIKeys.swift */,
+			);
+			name = GiantBombAPI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +152,8 @@
 			files = (
 				DF0253711D092BA80014AB10 /* ViewController.swift in Sources */,
 				DF02536F1D092BA80014AB10 /* AppDelegate.swift in Sources */,
+				DF0253881D0B124F0014AB10 /* GiantBombAPIKeys.swift in Sources */,
+				DF0253861D0B122E0014AB10 /* GiantBombAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +303,7 @@
 				DF02537F1D092BA80014AB10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

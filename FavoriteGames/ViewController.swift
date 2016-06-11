@@ -9,10 +9,18 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var webView: UIWebView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        GiantBombAPI.sharedSession.getGameData("metroid") { description in
+            
+            self.webView.loadHTMLString(description, baseURL: nil)
+            print(description)
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
