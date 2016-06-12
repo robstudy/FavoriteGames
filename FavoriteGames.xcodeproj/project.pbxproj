@@ -8,24 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		DF02536F1D092BA80014AB10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF02536E1D092BA80014AB10 /* AppDelegate.swift */; };
-		DF0253711D092BA80014AB10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0253701D092BA80014AB10 /* ViewController.swift */; };
 		DF0253741D092BA80014AB10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF0253721D092BA80014AB10 /* Main.storyboard */; };
 		DF0253761D092BA80014AB10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF0253751D092BA80014AB10 /* Assets.xcassets */; };
 		DF0253791D092BA80014AB10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF0253771D092BA80014AB10 /* LaunchScreen.storyboard */; };
 		DF0253861D0B122E0014AB10 /* GiantBombAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0253851D0B122E0014AB10 /* GiantBombAPI.swift */; };
 		DF0253881D0B124F0014AB10 /* GiantBombAPIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0253871D0B124F0014AB10 /* GiantBombAPIKeys.swift */; };
+		DF02538C1D0D378D0014AB10 /* FGTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF02538B1D0D378D0014AB10 /* FGTabVC.swift */; };
+		DF02538E1D0D37AC0014AB10 /* FGCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF02538D1D0D37AC0014AB10 /* FGCollectionVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DF02536B1D092BA80014AB10 /* FavoriteGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavoriteGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF02536E1D092BA80014AB10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DF0253701D092BA80014AB10 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DF0253731D092BA80014AB10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DF0253751D092BA80014AB10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF0253781D092BA80014AB10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF02537A1D092BA80014AB10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF0253851D0B122E0014AB10 /* GiantBombAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiantBombAPI.swift; sourceTree = "<group>"; };
 		DF0253871D0B124F0014AB10 /* GiantBombAPIKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiantBombAPIKeys.swift; sourceTree = "<group>"; };
+		DF02538B1D0D378D0014AB10 /* FGTabVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGTabVC.swift; sourceTree = "<group>"; };
+		DF02538D1D0D37AC0014AB10 /* FGCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGCollectionVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,9 +60,9 @@
 		DF02536D1D092BA80014AB10 /* FavoriteGames */ = {
 			isa = PBXGroup;
 			children = (
+				DF02538F1D0D37B20014AB10 /* View Controllers */,
 				DF0253841D0B12100014AB10 /* GiantBombAPI */,
 				DF02536E1D092BA80014AB10 /* AppDelegate.swift */,
-				DF0253701D092BA80014AB10 /* ViewController.swift */,
 				DF0253721D092BA80014AB10 /* Main.storyboard */,
 				DF0253751D092BA80014AB10 /* Assets.xcassets */,
 				DF0253771D092BA80014AB10 /* LaunchScreen.storyboard */,
@@ -76,6 +78,15 @@
 				DF0253871D0B124F0014AB10 /* GiantBombAPIKeys.swift */,
 			);
 			name = GiantBombAPI;
+			sourceTree = "<group>";
+		};
+		DF02538F1D0D37B20014AB10 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DF02538B1D0D378D0014AB10 /* FGTabVC.swift */,
+				DF02538D1D0D37AC0014AB10 /* FGCollectionVC.swift */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,9 +161,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF0253711D092BA80014AB10 /* ViewController.swift in Sources */,
 				DF02536F1D092BA80014AB10 /* AppDelegate.swift in Sources */,
+				DF02538C1D0D378D0014AB10 /* FGTabVC.swift in Sources */,
 				DF0253881D0B124F0014AB10 /* GiantBombAPIKeys.swift in Sources */,
+				DF02538E1D0D37AC0014AB10 /* FGCollectionVC.swift in Sources */,
 				DF0253861D0B122E0014AB10 /* GiantBombAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
