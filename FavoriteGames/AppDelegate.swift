@@ -15,7 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+
+        GiantBombAPI.sharedSession.getGameData("metroid+prime", completion: { description in
+
+        })
         
+
         return true
     }
 

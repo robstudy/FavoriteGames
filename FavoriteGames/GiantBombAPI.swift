@@ -28,27 +28,24 @@ class GiantBombAPI: NSObject {
                 return
             }
             
-            let parsedResult: AnyObject!
+            var results: [String: AnyObject]!
             
             do {
-                parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
+                let parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
+                if let theResults = parsedResult as? [String: AnyObject] {
+                    results = theResults
+                }
+        
             } catch {
-                parsedResult = nil
+                results = nil
                 print("Could not parse the data as JSON: '\(data)'")
                 return
             }
-
-            guard let results = parsedResult["results"]!![0] as? NSDictionary else {
-                print("Cannot locate results")
-                return
-            }
             
-            guard let returnedString = results["description"] else {
-                completion(description: "Cannot find description")
-                return
-            }
+            let resultsArray = results["results"] as! NSArray
             
-            completion(description: returnedString as! String)
+            print(resultsArray)
+        
         }
         task.resume()
     }

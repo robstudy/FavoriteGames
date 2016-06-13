@@ -131,11 +131,30 @@
                                 <rect key="frame" x="0.0" y="65" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yus-1i-h52">
+                                <rect key="frame" x="-20" y="120" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="h2m-5T-Doe" id="Blp-eJ-4hs"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="pVx-PK-AnN" id="a57-bN-MKg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cKE-Yn-FLv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="pVx-PK-AnN">
+                    <connections>
+                        <outlet property="delegate" destination="h2m-5T-Doe" id="m7c-j8-PKO"/>
+                        <outlet property="searchBar" destination="Yus-1i-h52" id="4eJ-vh-mbS"/>
+                        <outlet property="searchContentsController" destination="h2m-5T-Doe" id="2Hr-eU-aS6"/>
+                        <outlet property="searchResultsDataSource" destination="h2m-5T-Doe" id="HuU-Y9-DcC"/>
+                        <outlet property="searchResultsDelegate" destination="h2m-5T-Doe" id="nRz-ra-Gwg"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="767" y="501"/>
         </scene>
