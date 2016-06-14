@@ -13,6 +13,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kcw-ND-NrD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.19215686269999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="a4k-VU-g56">
                         <rect key="frame" x="0.0" y="556" width="600" height="44"/>
@@ -32,6 +36,7 @@
                 <tabBarController id="lUT-CZ-a5b" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="Favorite Games" id="ARK-kK-tyD">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="rau-SL-aOl">
+                            <color key="tintColor" red="0.31764705879999999" green="0.93725490199999995" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="h2m-5T-Doe" kind="show" id="Qiq-sj-3tu"/>
                             </connections>
@@ -41,6 +46,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.0" green="0.19215686269999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="auM-ZQ-hQf" kind="relationship" relationship="viewControllers" id="fGW-y6-0W6"/>
@@ -58,7 +64,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="aLP-Te-XBl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.27450980390000002" green="0.49019607840000001" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell" id="bLY-bm-aVi">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
@@ -136,11 +142,25 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" alpha="0.55000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vn6-W6-vnc">
+                                <rect key="frame" x="200" y="112" width="200" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.19215686269999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="1qu-VB-BZK"/>
+                                    <constraint firstAttribute="width" constant="200" id="Kky-2L-2wN"/>
+                                </constraints>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" red="0.31764705882352939" green="0.93725490196078431" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchForGames:" destination="h2m-5T-Doe" eventType="touchUpInside" id="3vg-cd-IzQ"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="110" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pdH-Dc-eep">
                                 <rect key="frame" x="0.0" y="160" width="600" height="391"/>
-                                <color key="backgroundColor" red="0.0" green="0.19215686274509802" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.10588235294117647" green="0.59215686274509804" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="displayGameCell" rowHeight="110" id="f9H-cR-aiX" customClass="DisplayGameCell" customModule="FavoriteGames" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="displayGameCell" rowHeight="110" id="f9H-cR-aiX" customClass="DisplayGameCell" customModule="FavoriteGames" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f9H-cR-aiX" id="paY-4u-Rcd">
@@ -149,8 +169,8 @@
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" editable="NO" text="Game Name" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwF-9c-tWc">
                                                     <rect key="frame" x="168" y="0.0" width="432" height="109"/>
-                                                    <color key="backgroundColor" red="0.0" green="0.19215686269999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="textColor" red="0.31764705879999999" green="0.93725490199999995" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.27450980390000002" green="0.49019607840000001" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="39"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
@@ -179,20 +199,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" alpha="0.55000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vn6-W6-vnc">
-                                <rect key="frame" x="200" y="112" width="200" height="40"/>
-                                <color key="backgroundColor" red="0.0" green="0.19215686269999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="1qu-VB-BZK"/>
-                                    <constraint firstAttribute="width" constant="200" id="Kky-2L-2wN"/>
-                                </constraints>
-                                <state key="normal" title="Search">
-                                    <color key="titleColor" red="0.31764705882352939" green="0.93725490196078431" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="searchForGames:" destination="h2m-5T-Doe" eventType="touchUpInside" id="3vg-cd-IzQ"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -208,6 +214,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="searchButton" destination="vn6-W6-vnc" id="nGj-RY-E5R"/>
                         <outlet property="searchDisplayController" destination="pVx-PK-AnN" id="a57-bN-MKg"/>
                         <outlet property="searchTextField" destination="8uh-gQ-0kJ" id="a9U-Ix-3a0"/>
                         <outlet property="tableView" destination="pdH-Dc-eep" id="Ddz-qY-mhd"/>

@@ -12,26 +12,26 @@ class SearchForGamesVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
-
-     private var retrievedArray: NSArray = []
+    @IBOutlet weak var searchButton: UIButton!
+    
+    private var retrievedArray: NSArray = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        configureButton()
         tableView.delegate = self
         tableView.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     //MARK: - TABLE VIEW
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let CellReuseId = "displayGameCell"
-        let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseId) as! DisplayGameCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("displayGameCell", forIndexPath: indexPath) as! DisplayGameCell
+        cell.gameNameText.textColor = UIColor.whiteColor()
         
         let game = retrievedArray[indexPath.row]
         let gameName = game["name"] as! String
@@ -58,8 +58,17 @@ class SearchForGamesVC: UIViewController, UITableViewDelegate, UITableViewDataSo
             cell.gameNameText.text = gameName
             return cell
         }
-
-        cell.gameNameText.text = gameName
+        
+        cell.gameNameText.textColor = UIColor.whiteColor()
+        let textAttributes = NSAttributedString(string: gameName, attributes:[
+            NSStrokeColorAttributeName:UIColor.blackColor(),
+            NSForegroundColorAttributeName: UIColor.whiteColor(),
+            NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 30)!,
+            NSStrokeWidthAttributeName: -3.0
+            ])
+        cell.gameNameText.attributedText = textAttributes
+        cell.gameNameText.textAlignment = NSTextAlignment.Center
+        cell.gameNameText.textAlignment = .Center
         cell.gameImage.image = myImage
         return cell
     }
@@ -67,6 +76,8 @@ class SearchForGamesVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return retrievedArray.count
     }
+    
+    //MARK: - Search
     
     @IBAction func searchForGames(sender: AnyObject) {
         let gameText = searchTextField.text
@@ -82,6 +93,12 @@ class SearchForGamesVC: UIViewController, UITableViewDelegate, UITableViewDataSo
                 return
             }
         })
+    }
+    
+    private func configureButton() {
+        searchButton.layer.borderWidth = 2.0
+        searchButton.layer.borderColor = UIColor.blackColor().CGColor
+        searchButton.layer.cornerRadius = 8.0
     }
     
 }
