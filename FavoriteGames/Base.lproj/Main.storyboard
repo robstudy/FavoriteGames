@@ -10,9 +10,10 @@
         <scene sceneID="HZ1-HA-WJ7">
             <objects>
                 <navigationController id="1fT-1k-KM3" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kcw-ND-NrD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="kcw-ND-NrD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.0" green="0.19215686269999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -36,17 +37,19 @@
                 <tabBarController id="lUT-CZ-a5b" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="Favorite Games" id="ARK-kK-tyD">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="rau-SL-aOl">
-                            <color key="tintColor" red="0.31764705879999999" green="0.93725490199999995" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="h2m-5T-Doe" kind="show" id="Qiq-sj-3tu"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="1bS-j8-plQ">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="1bS-j8-plQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.19215686269999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.0" green="0.19215686269999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="auM-ZQ-hQf" kind="relationship" relationship="viewControllers" id="fGW-y6-0W6"/>
@@ -57,17 +60,17 @@
             </objects>
             <point key="canvasLocation" x="-767" y="318"/>
         </scene>
-        <!--TabVC-->
+        <!--List-->
         <scene sceneID="o5u-mj-cig">
             <objects>
                 <tableViewController storyboardIdentifier="favGamesTableVC" id="auM-ZQ-hQf" customClass="FGTabVC" customModule="FavoriteGames" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="aLP-Te-XBl">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.27450980390000002" green="0.49019607840000001" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell" id="bLY-bm-aVi">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bLY-bm-aVi" id="7Og-Tb-iqw">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -80,20 +83,20 @@
                             <outlet property="delegate" destination="auM-ZQ-hQf" id="sQ0-sJ-ksE"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="S6h-0U-gn1"/>
+                    <tabBarItem key="tabBarItem" title="List" image="table" id="S6h-0U-gn1"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FAI-g1-wEy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="29" y="37"/>
         </scene>
-        <!--CollectionVC-->
+        <!--Collection-->
         <scene sceneID="6EH-yP-2j3">
             <objects>
                 <collectionViewController id="GZX-TO-ccB" customClass="FGCollectionVC" customModule="FavoriteGames" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="aBv-QK-rca">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.27450980390000002" green="0.49019607840000001" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="p6M-Qi-iuL">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -102,7 +105,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="YmE-mG-G8w">
-                                <rect key="frame" x="0.0" y="64" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -116,7 +119,7 @@
                             <outlet property="delegate" destination="GZX-TO-ccB" id="XkE-8i-3nM"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" systemItem="more" id="Dvl-dq-8g8"/>
+                    <tabBarItem key="tabBarItem" title="Collection" image="collection" id="Dvl-dq-8g8"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DFh-el-i6y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -131,11 +134,11 @@
                         <viewControllerLayoutGuide type="bottom" id="AkZ-QL-xKL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ajD-Bf-V6R">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" alpha="0.45000000000000001" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Game Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8uh-gQ-0kJ">
-                                <rect key="frame" x="0.0" y="64" width="600" height="40"/>
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.45000000000000001" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Game Name" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8uh-gQ-0kJ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="de6-or-BjN"/>
                                 </constraints>
@@ -143,7 +146,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" alpha="0.55000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vn6-W6-vnc">
-                                <rect key="frame" x="200" y="112" width="200" height="40"/>
+                                <rect key="frame" x="200" y="48" width="200" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.19215686269999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="1qu-VB-BZK"/>
@@ -157,7 +160,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="110" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pdH-Dc-eep">
-                                <rect key="frame" x="0.0" y="160" width="600" height="391"/>
+                                <rect key="frame" x="0.0" y="96" width="600" height="391"/>
                                 <color key="backgroundColor" red="0.10588235294117647" green="0.59215686274509804" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="displayGameCell" rowHeight="110" id="f9H-cR-aiX" customClass="DisplayGameCell" customModule="FavoriteGames" customModuleProvider="target">
@@ -233,4 +236,9 @@
             <point key="canvasLocation" x="767" y="501"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="collection" width="30" height="30"/>
+        <image name="table" width="30" height="30"/>
+    </resources>
+    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
