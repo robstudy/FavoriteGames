@@ -16,6 +16,7 @@
 		DF02538C1D0D378D0014AB10 /* FGTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF02538B1D0D378D0014AB10 /* FGTabVC.swift */; };
 		DF02538E1D0D37AC0014AB10 /* FGCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF02538D1D0D37AC0014AB10 /* FGCollectionVC.swift */; };
 		DF0253911D0F8D410014AB10 /* SearchForGamesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0253901D0F8D410014AB10 /* SearchForGamesVC.swift */; };
+		DF0253941D0FB31F0014AB10 /* DisplayGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0253931D0FB31F0014AB10 /* DisplayGameCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		DF02538B1D0D378D0014AB10 /* FGTabVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGTabVC.swift; sourceTree = "<group>"; };
 		DF02538D1D0D37AC0014AB10 /* FGCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGCollectionVC.swift; sourceTree = "<group>"; };
 		DF0253901D0F8D410014AB10 /* SearchForGamesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchForGamesVC.swift; sourceTree = "<group>"; };
+		DF0253931D0FB31F0014AB10 /* DisplayGameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayGameCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		DF02536D1D092BA80014AB10 /* FavoriteGames */ = {
 			isa = PBXGroup;
 			children = (
+				DF0253921D0FB2E80014AB10 /* Cells */,
 				DF02538F1D0D37B20014AB10 /* View Controllers */,
 				DF0253841D0B12100014AB10 /* GiantBombAPI */,
 				DF02536E1D092BA80014AB10 /* AppDelegate.swift */,
@@ -90,6 +93,14 @@
 				DF0253901D0F8D410014AB10 /* SearchForGamesVC.swift */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		DF0253921D0FB2E80014AB10 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DF0253931D0FB31F0014AB10 /* DisplayGameCell.swift */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +180,7 @@
 				DF0253881D0B124F0014AB10 /* GiantBombAPIKeys.swift in Sources */,
 				DF02538E1D0D37AC0014AB10 /* FGCollectionVC.swift in Sources */,
 				DF0253911D0F8D410014AB10 /* SearchForGamesVC.swift in Sources */,
+				DF0253941D0FB31F0014AB10 /* DisplayGameCell.swift in Sources */,
 				DF0253861D0B122E0014AB10 /* GiantBombAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

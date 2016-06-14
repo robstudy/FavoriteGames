@@ -27,7 +27,7 @@ class GiantBombAPI: NSObject {
         
         print(composedWord)
         
-        let urlString = "\(GiantBombAPI.Keys.BASE_URL)api_key=\(GiantBombAPI.Keys.API_KEY)&format=json&query=\(composedWord)&resources=game"
+        let urlString = "\(GiantBombAPI.Keys.BASE_URL)api_key=\(GiantBombAPI.Keys.API_KEY)&format=json&query=\(composedWord)&limit=15&resources=game"
         let url = NSURL(string: urlString)!
         let request = NSURLRequest(URL: url)
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
@@ -55,6 +55,7 @@ class GiantBombAPI: NSObject {
             }
             
             let resultsArray = results["results"] as! NSArray
+            print(resultsArray.count)
             
             completion(gameData: resultsArray)
         }

@@ -128,7 +128,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" alpha="0.45000000000000001" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Game Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8uh-gQ-0kJ">
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.45000000000000001" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Game Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8uh-gQ-0kJ">
                                 <rect key="frame" x="0.0" y="64" width="600" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="de6-or-BjN"/>
@@ -136,28 +136,59 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="57" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pdH-Dc-eep">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="110" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pdH-Dc-eep">
                                 <rect key="frame" x="0.0" y="160" width="600" height="391"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.19215686274509802" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="displayGameCell" rowHeight="57" id="f9H-cR-aiX">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="57"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="displayGameCell" rowHeight="110" id="f9H-cR-aiX" customClass="DisplayGameCell" customModule="FavoriteGames" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f9H-cR-aiX" id="paY-4u-Rcd">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="56"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="109"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" editable="NO" text="Game Name" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwF-9c-tWc">
+                                                    <rect key="frame" x="168" y="0.0" width="432" height="109"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.19215686269999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.31764705879999999" green="0.93725490199999995" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="39"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cae-Lj-XDF">
+                                                    <rect key="frame" x="0.0" y="0.0" width="170" height="109"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="170" id="PZx-3u-aZm"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.0" green="0.19215686269999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="zwF-9c-tWc" firstAttribute="leading" secondItem="cae-Lj-XDF" secondAttribute="trailing" constant="-2" id="71k-BK-D6r"/>
+                                                <constraint firstItem="zwF-9c-tWc" firstAttribute="top" secondItem="paY-4u-Rcd" secondAttribute="topMargin" constant="-8" id="HCm-ge-kUf"/>
+                                                <constraint firstItem="cae-Lj-XDF" firstAttribute="leading" secondItem="paY-4u-Rcd" secondAttribute="leadingMargin" constant="-8" id="LrX-Dm-SRz"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="cae-Lj-XDF" secondAttribute="bottom" constant="-8" id="S0b-j7-Yx3"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="zwF-9c-tWc" secondAttribute="bottom" constant="-8" id="r6m-8o-4x8"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="zwF-9c-tWc" secondAttribute="trailing" constant="-8" id="spw-kg-EfF"/>
+                                                <constraint firstItem="cae-Lj-XDF" firstAttribute="top" secondItem="paY-4u-Rcd" secondAttribute="topMargin" constant="-8" id="vza-Hc-3LU"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="gameImage" destination="cae-Lj-XDF" id="Sca-tq-Fe1"/>
+                                            <outlet property="gameNameText" destination="zwF-9c-tWc" id="xqh-Sz-lbm"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" alpha="0.55000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vn6-W6-vnc">
                                 <rect key="frame" x="200" y="112" width="200" height="40"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.19215686269999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="1qu-VB-BZK"/>
                                     <constraint firstAttribute="width" constant="200" id="Kky-2L-2wN"/>
                                 </constraints>
-                                <state key="normal" title="Search"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" red="0.31764705882352939" green="0.93725490196078431" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="searchForGames:" destination="h2m-5T-Doe" eventType="touchUpInside" id="3vg-cd-IzQ"/>
                                 </connections>
@@ -179,6 +210,7 @@
                     <connections>
                         <outlet property="searchDisplayController" destination="pVx-PK-AnN" id="a57-bN-MKg"/>
                         <outlet property="searchTextField" destination="8uh-gQ-0kJ" id="a9U-Ix-3a0"/>
+                        <outlet property="tableView" destination="pdH-Dc-eep" id="Ddz-qY-mhd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cKE-Yn-FLv" userLabel="First Responder" sceneMemberID="firstResponder"/>
