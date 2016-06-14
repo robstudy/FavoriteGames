@@ -15,6 +15,7 @@
 		DF0253881D0B124F0014AB10 /* GiantBombAPIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0253871D0B124F0014AB10 /* GiantBombAPIKeys.swift */; };
 		DF02538C1D0D378D0014AB10 /* FGTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF02538B1D0D378D0014AB10 /* FGTabVC.swift */; };
 		DF02538E1D0D37AC0014AB10 /* FGCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF02538D1D0D37AC0014AB10 /* FGCollectionVC.swift */; };
+		DF0253911D0F8D410014AB10 /* SearchForGamesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0253901D0F8D410014AB10 /* SearchForGamesVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		DF0253871D0B124F0014AB10 /* GiantBombAPIKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiantBombAPIKeys.swift; sourceTree = "<group>"; };
 		DF02538B1D0D378D0014AB10 /* FGTabVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGTabVC.swift; sourceTree = "<group>"; };
 		DF02538D1D0D37AC0014AB10 /* FGCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGCollectionVC.swift; sourceTree = "<group>"; };
+		DF0253901D0F8D410014AB10 /* SearchForGamesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchForGamesVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			children = (
 				DF02538B1D0D378D0014AB10 /* FGTabVC.swift */,
 				DF02538D1D0D37AC0014AB10 /* FGCollectionVC.swift */,
+				DF0253901D0F8D410014AB10 /* SearchForGamesVC.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 				DF02538C1D0D378D0014AB10 /* FGTabVC.swift in Sources */,
 				DF0253881D0B124F0014AB10 /* GiantBombAPIKeys.swift in Sources */,
 				DF02538E1D0D37AC0014AB10 /* FGCollectionVC.swift in Sources */,
+				DF0253911D0F8D410014AB10 /* SearchForGamesVC.swift in Sources */,
 				DF0253861D0B122E0014AB10 /* GiantBombAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

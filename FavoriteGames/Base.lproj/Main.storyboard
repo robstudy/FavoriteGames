@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -115,10 +116,10 @@
             </objects>
             <point key="canvasLocation" x="29" y="828"/>
         </scene>
-        <!--View Controller-->
+        <!--Search For GamesVC-->
         <scene sceneID="YA8-vM-iJ6">
             <objects>
-                <viewController storyboardIdentifier="searchVC" id="h2m-5T-Doe" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="searchVC" id="h2m-5T-Doe" customClass="SearchForGamesVC" customModule="FavoriteGames" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EKB-wU-zIq"/>
                         <viewControllerLayoutGuide type="bottom" id="AkZ-QL-xKL"/>
@@ -127,29 +128,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GSK-T9-pvC">
-                                <rect key="frame" x="0.0" y="65" width="600" height="44"/>
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.45000000000000001" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Game Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8uh-gQ-0kJ">
+                                <rect key="frame" x="0.0" y="64" width="600" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="de6-or-BjN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yus-1i-h52">
-                                <rect key="frame" x="-20" y="120" width="600" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="57" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pdH-Dc-eep">
+                                <rect key="frame" x="0.0" y="160" width="600" height="391"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="displayGameCell" rowHeight="57" id="f9H-cR-aiX">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="57"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f9H-cR-aiX" id="paY-4u-Rcd">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="56"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" alpha="0.55000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vn6-W6-vnc">
+                                <rect key="frame" x="200" y="112" width="200" height="40"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="1qu-VB-BZK"/>
+                                    <constraint firstAttribute="width" constant="200" id="Kky-2L-2wN"/>
+                                </constraints>
+                                <state key="normal" title="Search"/>
                                 <connections>
-                                    <outlet property="delegate" destination="h2m-5T-Doe" id="Blp-eJ-4hs"/>
+                                    <action selector="searchForGames:" destination="h2m-5T-Doe" eventType="touchUpInside" id="3vg-cd-IzQ"/>
                                 </connections>
-                            </searchBar>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8uh-gQ-0kJ" firstAttribute="top" secondItem="EKB-wU-zIq" secondAttribute="bottom" id="8AO-QK-Ad3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pdH-Dc-eep" secondAttribute="trailing" constant="-20" id="FaP-26-l1l"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8uh-gQ-0kJ" secondAttribute="trailing" constant="-20" id="GlR-hm-ig1"/>
+                            <constraint firstItem="pdH-Dc-eep" firstAttribute="top" secondItem="vn6-W6-vnc" secondAttribute="bottom" constant="8" symbolic="YES" id="O32-0R-Hh3"/>
+                            <constraint firstItem="8uh-gQ-0kJ" firstAttribute="leading" secondItem="ajD-Bf-V6R" secondAttribute="leadingMargin" constant="-20" id="TpJ-Ey-Flo"/>
+                            <constraint firstItem="pdH-Dc-eep" firstAttribute="leading" secondItem="ajD-Bf-V6R" secondAttribute="leadingMargin" constant="-20" id="cFi-ic-Owq"/>
+                            <constraint firstItem="AkZ-QL-xKL" firstAttribute="top" secondItem="pdH-Dc-eep" secondAttribute="bottom" id="ePF-k2-35N"/>
+                            <constraint firstItem="8uh-gQ-0kJ" firstAttribute="centerX" secondItem="vn6-W6-vnc" secondAttribute="centerX" id="lY3-ej-Dc6"/>
+                            <constraint firstItem="vn6-W6-vnc" firstAttribute="top" secondItem="8uh-gQ-0kJ" secondAttribute="bottom" constant="8" symbolic="YES" id="mA7-aK-Rzc"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="searchDisplayController" destination="pVx-PK-AnN" id="a57-bN-MKg"/>
+                        <outlet property="searchTextField" destination="8uh-gQ-0kJ" id="a9U-Ix-3a0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cKE-Yn-FLv" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <searchDisplayController id="pVx-PK-AnN">
                     <connections>
                         <outlet property="delegate" destination="h2m-5T-Doe" id="m7c-j8-PKO"/>
-                        <outlet property="searchBar" destination="Yus-1i-h52" id="4eJ-vh-mbS"/>
                         <outlet property="searchContentsController" destination="h2m-5T-Doe" id="2Hr-eU-aS6"/>
                         <outlet property="searchResultsDataSource" destination="h2m-5T-Doe" id="HuU-Y9-DcC"/>
                         <outlet property="searchResultsDelegate" destination="h2m-5T-Doe" id="nRz-ra-Gwg"/>

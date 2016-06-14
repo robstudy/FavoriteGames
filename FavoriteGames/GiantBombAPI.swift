@@ -13,9 +13,21 @@ class GiantBombAPI: NSObject {
     static let sharedSession = GiantBombAPI()
     private let session = NSURLSession.sharedSession()
     
-    func getGameData(gameName: String, completion: (description: String)-> Void){
+    func getGameData(gameName: String, completion: (gameData: NSArray)-> Void){
         
-        let urlString = "\(GiantBombAPI.Keys.BASE_URL)api_key=\(GiantBombAPI.Keys.API_KEY)&format=json&query=\(gameName)&resources=game"
+        var composedWord: String = ""
+        
+        for character in gameName.characters {
+            if character == " " {
+                composedWord += "+"
+            } else {
+                composedWord += String(character)
+            }
+        }
+        
+        print(composedWord)
+        
+        let urlString = "\(GiantBombAPI.Keys.BASE_URL)api_key=\(GiantBombAPI.Keys.API_KEY)&format=json&query=\(composedWord)&resources=game"
         let url = NSURL(string: urlString)!
         let request = NSURLRequest(URL: url)
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
@@ -44,8 +56,7 @@ class GiantBombAPI: NSObject {
             
             let resultsArray = results["results"] as! NSArray
             
-            print(resultsArray)
-        
+            completion(gameData: resultsArray)
         }
         task.resume()
     }
