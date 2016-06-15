@@ -9,11 +9,12 @@
 import UIKit
 import CoreData
 
-class FGTabVC: UITableViewController {
+class FGTabVC: UITableViewController, NSFetchedResultsControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         performFetch()
+        fetchedResultsController.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {

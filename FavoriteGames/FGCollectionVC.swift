@@ -7,21 +7,38 @@
 //
 
 import UIKit
+import CoreData
 
-private let reuseIdentifier = "Cell"
+private let reuseIdentifier = "collectionCell"
 
-class FGCollectionVC: UICollectionViewController {
+class FGCollectionVC: UICollectionViewController, NSFetchedResultsControllerDelegate {
+    
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+
+        performFetch()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        configureViewController()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        performFetch()
+        saveData()
+        dispatch_async(dispatch_get_main_queue(), {
+            self.collectionView?.collectionViewLayout.invalidateLayout()
+            self.collectionView?.reloadData()
+            self.collectionView?.layoutIfNeeded()
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,24 +58,58 @@ class FGCollectionVC: UICollectionViewController {
 
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return self.fetchedResultsController.sections![section].numberOfObjects
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! GameCollectionCell
+        let cellData = fetchedResultsController.objectAtIndexPath(indexPath) as! Game
+        
+        let cellImage = UIImage(data: cellData.thumbnail!)
+        cell.backgroundView = UIImageView(image: cellImage)
     
         // Configure the cell
     
         return cell
     }
+    
+    //MARK: - CORE DATA FUNCTIONS
+    
+    var sharedContext: NSManagedObjectContext {
+        return CoreDataStackManager.sharedInstance().managedObjectContext
+    }
+    
+    lazy var fetchedResultsController: NSFetchedResultsController = {
+        let fetchRequest = NSFetchRequest(entityName: "Game")
+        
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
+            managedObjectContext: self.sharedContext,
+            sectionNameKeyPath: nil,
+            cacheName: nil)
+        
+        return fetchedResultsController
+    }()
+    
+    private func saveData() {
+        do {
+            try self.sharedContext.save()
+        } catch {
+            print("Could not save!")
+        }
+    }
+    
+    private func performFetch() {
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            print(error)
+        }
+    }
+
 
     // MARK: UICollectionViewDelegate
 
@@ -90,5 +141,17 @@ class FGCollectionVC: UICollectionViewController {
     
     }
     */
-
+    
+    private func configureViewController() {
+        fetchedResultsController.delegate = self
+        
+        self.collectionView!.registerClass(GameCollectionCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        
+        let space: CGFloat = 0
+        let dimension = (self.view.frame.width - (2 * space)) / 3.0
+        
+        flowLayout.minimumInteritemSpacing = space
+        flowLayout.minimumLineSpacing = 0
+        flowLayout.itemSize = CGSizeMake(dimension, dimension)
+    }
 }
