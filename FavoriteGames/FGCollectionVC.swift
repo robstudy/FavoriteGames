@@ -14,6 +14,7 @@ private let reuseIdentifier = "collectionCell"
 class FGCollectionVC: UICollectionViewController, NSFetchedResultsControllerDelegate {
     
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    private var gameToSend: Game!
     
 
     override func viewDidLoad() {
@@ -39,15 +40,15 @@ class FGCollectionVC: UICollectionViewController, NSFetchedResultsControllerDele
         super.didReceiveMemoryWarning()
     }
 
-    /*
+
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        if (segue.identifier == "gameDetail") {
+            let gameDetail = segue.destinationViewController as! GameDetailVC
+            gameDetail.gameData = gameToSend
+        }
     }
-    */
 
     // MARK: - UICollectionViewDataSource
 
@@ -104,6 +105,12 @@ class FGCollectionVC: UICollectionViewController, NSFetchedResultsControllerDele
 
 
     // MARK: UICollectionViewDelegate
+    
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let cell = fetchedResultsController.objectAtIndexPath(indexPath) as! Game
+        gameToSend = cell
+        self.performSegueWithIdentifier("gameDetail", sender: collectionView)
+    }
 
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking

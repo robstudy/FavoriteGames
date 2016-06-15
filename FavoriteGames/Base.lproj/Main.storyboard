@@ -245,7 +245,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="y3C-Iw-FAU">
-                        <barButtonItem key="rightBarButtonItem" title="Delete Game" id="nDm-j8-ztg"/>
+                        <barButtonItem key="rightBarButtonItem" title="Delete" id="nDm-j8-ztg"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
