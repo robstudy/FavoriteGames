@@ -22,6 +22,7 @@
 		DF0253A51D1129B30014AB10 /* Game+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0253A31D1129B30014AB10 /* Game+CoreDataProperties.swift */; };
 		DF0253A61D1129B30014AB10 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0253A41D1129B30014AB10 /* Game.swift */; };
 		DF0253A81D113B010014AB10 /* GameCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0253A71D113B010014AB10 /* GameCollectionCell.swift */; };
+		DF0253AA1D11B4E10014AB10 /* GameDetalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0253A91D11B4E10014AB10 /* GameDetalVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		DF0253A31D1129B30014AB10 /* Game+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Game+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DF0253A41D1129B30014AB10 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		DF0253A71D113B010014AB10 /* GameCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCollectionCell.swift; sourceTree = "<group>"; };
+		DF0253A91D11B4E10014AB10 /* GameDetalVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDetalVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				DF02538B1D0D378D0014AB10 /* FGTabVC.swift */,
 				DF02538D1D0D37AC0014AB10 /* FGCollectionVC.swift */,
 				DF0253901D0F8D410014AB10 /* SearchForGamesVC.swift */,
+				DF0253A91D11B4E10014AB10 /* GameDetalVC.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 				DF0253881D0B124F0014AB10 /* GiantBombAPIKeys.swift in Sources */,
 				DF0253981D10589A0014AB10 /* Model.xcdatamodeld in Sources */,
 				DF0253A81D113B010014AB10 /* GameCollectionCell.swift in Sources */,
+				DF0253AA1D11B4E10014AB10 /* GameDetalVC.swift in Sources */,
 				DF02538E1D0D37AC0014AB10 /* FGCollectionVC.swift in Sources */,
 				DF0253A61D1129B30014AB10 /* Game.swift in Sources */,
 				DF0253911D0F8D410014AB10 /* SearchForGamesVC.swift in Sources */,

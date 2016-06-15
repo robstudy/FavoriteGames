@@ -20,20 +20,19 @@ class SearchForGamesVC: UIViewController, UITableViewDelegate, UITableViewDataSo
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        configureButton()
-        tableView.delegate = self
-        tableView.dataSource = self
+        configureViewController()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    //MARK: - TABLEVIEW DATA SOURCE & DELEGATE
+    //MARK: - TableView Data Source and Delegate
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("displayGameCell", forIndexPath: indexPath) as! DisplayGameCell
         cell.gameNameText.textColor = UIColor.whiteColor()
+        
         let game = retrievedArray[indexPath.row]
         let gameName = game["name"] as! String
         let textAttributes = NSAttributedString(string: gameName, attributes:[
@@ -96,7 +95,7 @@ class SearchForGamesVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         let testArray = [gameName, cellImage, deck, info, siteURL, id]
         for item in testArray {
             if item is NSNull {
-                print("returning due to null item")
+                displayAlertView()
                 return
             }
         }
@@ -108,7 +107,7 @@ class SearchForGamesVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    //MARK: - SEARCH
+    //MARK: - Search
     
     @IBAction func searchForGames(sender: AnyObject) {
         retrievedArray = []
@@ -133,12 +132,14 @@ class SearchForGamesVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         })
     }
     
-    //MARK: - PRIVATE UI FUNCTIONS
+    //MARK: - Private UI Functions
     
-    private func configureButton() {
+    private func configureViewController() {
+        tableView.delegate = self
+        tableView.dataSource = self
         searchButton.layer.borderWidth = 2.0
-        searchButton.layer.borderColor = UIColor.blackColor().CGColor
         searchButton.layer.cornerRadius = 8.0
+        searchButton.layer.borderColor = UIColor.blackColor().CGColor
     }
     
     private func toggleActivityView(on: Bool) {
@@ -163,13 +164,18 @@ class SearchForGamesVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     private func displayAlertView() {
-        
+        let okPress = UIAlertAction(title: "OK", style: .Default) { action in
+            return
+        }
         dispatch_async(dispatch_get_main_queue(), {
-            
+            let warningAlert = UIAlertController(title: "WARNING!", message: "Problem retrieving data from source. Undable to use cell.", preferredStyle: .Alert)
+            warningAlert.addAction(okPress)
+            self.presentViewController(warningAlert, animated: true, completion: nil)
         })
     }
     
-    //MARK: - CORE DATA SHARED CONTEXT
+    //MARK: - Core Data Shared Context
+    
     var sharedContext: NSManagedObjectContext {
         return CoreDataStackManager.sharedInstance().managedObjectContext
     }

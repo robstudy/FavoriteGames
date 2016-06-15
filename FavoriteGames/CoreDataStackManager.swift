@@ -13,17 +13,16 @@ private let SQLITE_FILE_NAME = "FavoriteGames.sqlite"
 
 class CoreDataStackManager {
     
-    // MARK: - Shared Instance
+    // MARK: - SHARED INSTANCE
     
     class func sharedInstance() -> CoreDataStackManager {
         struct Static {
             static let instance = CoreDataStackManager()
         }
-        
         return Static.instance
     }
     
-    // MARK: - The Core Data stack.
+    // MARK: - THE CORE DATA STACK
     
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "ROB.VirtualTourist" in the application's documents Application Support directory.
@@ -58,7 +57,6 @@ class CoreDataStackManager {
         return coordinator
     }()
     
-    
     lazy var managedObjectContext: NSManagedObjectContext = {
         // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.) This property is optional since there are legitimate error conditions that could cause the creation of the context to fail.
         let coordinator = self.persistentStoreCoordinator
@@ -67,7 +65,7 @@ class CoreDataStackManager {
         return managedObjectContext
     }()
     
-    // MARK: - Core Data Saving support
+    // MARK: - CORE DATA SAVING SUPPORT
     
     func saveContext () {
         if managedObjectContext.hasChanges {

@@ -18,16 +18,10 @@ class FGCollectionVC: UICollectionViewController, NSFetchedResultsControllerDele
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
         performFetch()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
         configureViewController()
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -43,7 +37,6 @@ class FGCollectionVC: UICollectionViewController, NSFetchedResultsControllerDele
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     /*
@@ -56,26 +49,25 @@ class FGCollectionVC: UICollectionViewController, NSFetchedResultsControllerDele
     }
     */
 
-    // MARK: UICollectionViewDataSource
+    // MARK: - UICollectionViewDataSource
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
         return self.fetchedResultsController.sections![section].numberOfObjects
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! GameCollectionCell
+        
         let cellData = fetchedResultsController.objectAtIndexPath(indexPath) as! Game
         
         let cellImage = UIImage(data: cellData.thumbnail!)
+        
         cell.backgroundView = UIImageView(image: cellImage)
-    
-        // Configure the cell
     
         return cell
     }
     
-    //MARK: - CORE DATA FUNCTIONS
+    //MARK: - Core Data Functions
     
     var sharedContext: NSManagedObjectContext {
         return CoreDataStackManager.sharedInstance().managedObjectContext
@@ -142,6 +134,8 @@ class FGCollectionVC: UICollectionViewController, NSFetchedResultsControllerDele
     }
     */
     
+    //MARK: - Private UI Functions
+    
     private func configureViewController() {
         fetchedResultsController.delegate = self
         
@@ -150,7 +144,7 @@ class FGCollectionVC: UICollectionViewController, NSFetchedResultsControllerDele
         let space: CGFloat = 0
         let dimension = (self.view.frame.width - (2 * space)) / 3.0
         
-        flowLayout.minimumInteritemSpacing = space
+        flowLayout.minimumInteritemSpacing = 0
         flowLayout.minimumLineSpacing = 0
         flowLayout.itemSize = CGSizeMake(dimension, dimension)
     }
