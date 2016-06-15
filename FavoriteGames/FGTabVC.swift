@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 
 class FGTabVC: UITableViewController, NSFetchedResultsControllerDelegate {
+    
+    private var gameToSend: Game!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +39,7 @@ class FGTabVC: UITableViewController, NSFetchedResultsControllerDelegate {
         return fetchedResultsController.sections![section].numberOfObjects
     }
     
-    //MARK: - CORE DATA FUNCTIONS
+    //MARK: - Core Data Functions
     
     var sharedContext: NSManagedObjectContext {
         return CoreDataStackManager.sharedInstance().managedObjectContext
@@ -89,15 +91,6 @@ class FGTabVC: UITableViewController, NSFetchedResultsControllerDelegate {
         return cell
     }
 
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
     
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -109,30 +102,20 @@ class FGTabVC: UITableViewController, NSFetchedResultsControllerDelegate {
         } 
     }
     
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = fetchedResultsController.objectAtIndexPath(indexPath) as! Game
+        gameToSend = cell
+        self.performSegueWithIdentifier("gameDetail", sender: tableView)
     }
-    */
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "gameDetail") {
+            let gameDetail = segue.destinationViewController as! GameDetailVC
+            gameDetail.gameData = gameToSend
+        }
+    }
+
 
 }
