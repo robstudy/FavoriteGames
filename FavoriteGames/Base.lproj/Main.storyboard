@@ -50,6 +50,11 @@
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.0" green="0.19215686269999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="auM-ZQ-hQf" kind="relationship" relationship="viewControllers" id="fGW-y6-0W6"/>
@@ -137,6 +142,20 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="GR2-RC-Rsj">
+                                <rect key="frame" x="0.0" y="225" width="600" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="68n-Qa-Qkn"/>
+                                    <constraint firstAttribute="width" constant="100" id="hny-p5-MXT"/>
+                                </constraints>
+                                <color key="color" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="68n-Qa-Qkn"/>
+                                        <exclude reference="hny-p5-MXT"/>
+                                    </mask>
+                                </variation>
+                            </activityIndicatorView>
                             <textField opaque="NO" clipsSubviews="YES" alpha="0.45000000000000001" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Game Name" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8uh-gQ-0kJ">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
                                 <constraints>
@@ -152,9 +171,7 @@
                                     <constraint firstAttribute="height" constant="40" id="1qu-VB-BZK"/>
                                     <constraint firstAttribute="width" constant="200" id="Kky-2L-2wN"/>
                                 </constraints>
-                                <state key="normal" title="Search">
-                                    <color key="titleColor" red="0.31764705882352939" green="0.93725490196078431" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
+                                <state key="normal" title="Search"/>
                                 <connections>
                                     <action selector="searchForGames:" destination="h2m-5T-Doe" eventType="touchUpInside" id="3vg-cd-IzQ"/>
                                 </connections>
@@ -172,7 +189,7 @@
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" editable="NO" text="Game Name" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwF-9c-tWc">
                                                     <rect key="frame" x="168" y="0.0" width="432" height="109"/>
-                                                    <color key="backgroundColor" red="0.27450980390000002" green="0.49019607840000001" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="39"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -184,7 +201,7 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.0" green="0.19215686269999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="zwF-9c-tWc" firstAttribute="leading" secondItem="cae-Lj-XDF" secondAttribute="trailing" constant="-2" id="71k-BK-D6r"/>
                                                 <constraint firstItem="zwF-9c-tWc" firstAttribute="top" secondItem="paY-4u-Rcd" secondAttribute="topMargin" constant="-8" id="HCm-ge-kUf"/>
@@ -208,6 +225,9 @@
                             <constraint firstItem="8uh-gQ-0kJ" firstAttribute="top" secondItem="EKB-wU-zIq" secondAttribute="bottom" id="8AO-QK-Ad3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="pdH-Dc-eep" secondAttribute="trailing" constant="-20" id="FaP-26-l1l"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8uh-gQ-0kJ" secondAttribute="trailing" constant="-20" id="GlR-hm-ig1"/>
+                            <constraint firstItem="GR2-RC-Rsj" firstAttribute="leading" secondItem="8uh-gQ-0kJ" secondAttribute="leading" id="JGf-y0-rwf"/>
+                            <constraint firstItem="GR2-RC-Rsj" firstAttribute="trailing" secondItem="8uh-gQ-0kJ" secondAttribute="trailing" id="LqZ-JW-YtB"/>
+                            <constraint firstItem="GR2-RC-Rsj" firstAttribute="centerY" secondItem="ajD-Bf-V6R" secondAttribute="centerY" id="NbI-tO-sDT"/>
                             <constraint firstItem="pdH-Dc-eep" firstAttribute="top" secondItem="vn6-W6-vnc" secondAttribute="bottom" constant="8" symbolic="YES" id="O32-0R-Hh3"/>
                             <constraint firstItem="8uh-gQ-0kJ" firstAttribute="leading" secondItem="ajD-Bf-V6R" secondAttribute="leadingMargin" constant="-20" id="TpJ-Ey-Flo"/>
                             <constraint firstItem="pdH-Dc-eep" firstAttribute="leading" secondItem="ajD-Bf-V6R" secondAttribute="leadingMargin" constant="-20" id="cFi-ic-Owq"/>
@@ -217,6 +237,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityView" destination="GR2-RC-Rsj" id="pQX-oS-aVo"/>
                         <outlet property="searchButton" destination="vn6-W6-vnc" id="nGj-RY-E5R"/>
                         <outlet property="searchDisplayController" destination="pVx-PK-AnN" id="a57-bN-MKg"/>
                         <outlet property="searchTextField" destination="8uh-gQ-0kJ" id="a9U-Ix-3a0"/>
