@@ -20,6 +20,7 @@
 		DF0253981D10589A0014AB10 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DF0253961D10589A0014AB10 /* Model.xcdatamodeld */; };
 		DF02539B1D1065B90014AB10 /* Game+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0253991D1065B90014AB10 /* Game+CoreDataProperties.swift */; };
 		DF02539C1D1065B90014AB10 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF02539A1D1065B90014AB10 /* Game.swift */; };
+		DF0253A21D10D4410014AB10 /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0253A11D10D4410014AB10 /* CoreDataStackManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		DF0253971D10589A0014AB10 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		DF0253991D1065B90014AB10 /* Game+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Game+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DF02539A1D1065B90014AB10 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		DF0253A11D10D4410014AB10 /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				DF0253991D1065B90014AB10 /* Game+CoreDataProperties.swift */,
 				DF02539A1D1065B90014AB10 /* Game.swift */,
 				DF0253961D10589A0014AB10 /* Model.xcdatamodeld */,
+				DF0253A11D10D4410014AB10 /* CoreDataStackManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 			files = (
 				DF02536F1D092BA80014AB10 /* AppDelegate.swift in Sources */,
 				DF02539C1D1065B90014AB10 /* Game.swift in Sources */,
+				DF0253A21D10D4410014AB10 /* CoreDataStackManager.swift in Sources */,
 				DF02538C1D0D378D0014AB10 /* FGTabVC.swift in Sources */,
 				DF0253881D0B124F0014AB10 /* GiantBombAPIKeys.swift in Sources */,
 				DF0253981D10589A0014AB10 /* Model.xcdatamodeld in Sources */,
