@@ -192,7 +192,7 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qfe-hc-c49">
                                         <rect key="frame" x="0.0" y="0.0" width="345" height="146"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
@@ -245,7 +245,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="y3C-Iw-FAU">
-                        <barButtonItem key="rightBarButtonItem" title="Delete" id="nDm-j8-ztg"/>
+                        <barButtonItem key="rightBarButtonItem" title="Delete" id="nDm-j8-ztg">
+                            <connections>
+                                <action selector="deleteGame:" destination="Trs-WB-pyT" id="AsN-d0-ssq"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>

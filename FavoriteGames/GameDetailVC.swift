@@ -42,7 +42,34 @@ class GameDetailVC: UIViewController, NSFetchedResultsControllerDelegate {
     }
     
     @IBAction func goToGiantBomb(sender: AnyObject) {
-        print("Go to website!")
+        if let url = NSURL(string: gameData.siteUrl!) {
+            if UIApplication.sharedApplication().canOpenURL(url) {
+                UIApplication.sharedApplication().openURL(url)
+            } else {
+                displayAlertView()
+            }
+        }
     }
     
+    @IBAction func deleteGame(sender: AnyObject) {
+        //performFetch()
+        sharedContext.deleteObject(gameData)
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    private func displayAlertView() {
+        let okPress = UIAlertAction(title: "OK", style: .Default) { action in
+            return
+        }
+        dispatch_async(dispatch_get_main_queue(), {
+            let warningAlert = UIAlertController(title: "WARNING!", message: "Can't open link to GiantBomb", preferredStyle: .Alert)
+            warningAlert.addAction(okPress)
+            self.presentViewController(warningAlert, animated: true, completion: nil)
+        })
+    }
+    
+    //MARK: - Core Data Functions
+    var sharedContext: NSManagedObjectContext {
+        return CoreDataStackManager.sharedInstance().managedObjectContext
+    }
 }

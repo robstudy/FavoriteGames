@@ -95,7 +95,7 @@ class SearchForGamesVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         let testArray = [gameName, cellImage, deck, info, siteURL, id]
         for item in testArray {
             if item is NSNull {
-                displayAlertView()
+                displayAlertView("Problem retrieving data from source. Undable to use cell.", header: "WARNING!")
                 return
             }
         }
@@ -125,7 +125,7 @@ class SearchForGamesVC: UIViewController, UITableViewDelegate, UITableViewDataSo
                     self.toggleActivityView(false)
                 })
             } else {
-                print("No data retreived")
+                self.displayAlertView("No Data Retrieved", header: "Error")
                 self.toggleActivityView(false)
                 return
             }
@@ -163,12 +163,12 @@ class SearchForGamesVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         })
     }
     
-    private func displayAlertView() {
+    private func displayAlertView(message: String, header: String) {
         let okPress = UIAlertAction(title: "OK", style: .Default) { action in
             return
         }
         dispatch_async(dispatch_get_main_queue(), {
-            let warningAlert = UIAlertController(title: "WARNING!", message: "Problem retrieving data from source. Undable to use cell.", preferredStyle: .Alert)
+            let warningAlert = UIAlertController(title: header, message: message, preferredStyle: .Alert)
             warningAlert.addAction(okPress)
             self.presentViewController(warningAlert, animated: true, completion: nil)
         })

@@ -32,9 +32,12 @@ class GiantBombAPI: NSObject {
         let request = NSURLRequest(URL: url)
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
          
-            guard (error == nil) else {
+            if error != nil {
+                print("Error")
+                completion(gameData: [])
                 return
             }
+
             guard let data = data else {
                 print("No Data was returned")
                 return
