@@ -7,45 +7,87 @@
 //
 
 import UIKit
+import CoreData
 
 class FGTabVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        performFetch()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        performFetch()
+        dispatch_async(dispatch_get_main_queue(), {
+            self.tableView.reloadData()
+        })
+        saveData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return fetchedResultsController.sections![section].numberOfObjects
+    }
+    
+    //MARK: - CORE DATA FUNCTIONS
+    
+    var sharedContext: NSManagedObjectContext {
+        return CoreDataStackManager.sharedInstance().managedObjectContext
+    }
+    
+    lazy var fetchedResultsController: NSFetchedResultsController = {
+        let fetchRequest = NSFetchRequest(entityName: "Game")
+        
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
+            managedObjectContext: self.sharedContext,
+            sectionNameKeyPath: nil,
+            cacheName: nil)
+        
+        return fetchedResultsController
+    }()
+    
+    private func saveData() {
+        do {
+            try self.sharedContext.save()
+        } catch {
+            print("Could not save!")
+        }
+    }
+    
+    private func performFetch() {
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            print(error)
+        }
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCellWithIdentifier("showGameCell", forIndexPath: indexPath) as! DisplayGameCell
+        let cellData = fetchedResultsController.objectAtIndexPath(indexPath) as! Game
+        
+        let textAttributes = NSAttributedString(string: cellData.name!, attributes:[
+            NSForegroundColorAttributeName: UIColor.whiteColor(),
+            NSFontAttributeName: UIFont(name: "Helvetica Neue", size: 30)!,
+            ])
+        
+        cell.gameImage.image = UIImage(data: cellData.thumbnail!)
+        cell.gameNameText.attributedText = textAttributes
+        cell.gameNameText.textAlignment = NSTextAlignment.Center
+        cell.gameNameText.textAlignment = .Center
 
         return cell
     }
-    */
+
 
     /*
     // Override to support conditional editing of the table view.

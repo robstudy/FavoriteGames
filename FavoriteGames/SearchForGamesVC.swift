@@ -56,12 +56,12 @@ class SearchForGamesVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         }
         
         guard let imageData = NSData(contentsOfURL: NSURL(string: imageurl)!) else {
-            cell.gameNameText.text = "Could not retrieve text!"
+            cell.gameNameText.text = gameName
             return cell
         }
         
         guard let myImage =  UIImage(data: imageData) else {
-            cell.gameNameText.text = "Could not retrieve text!"
+            cell.gameNameText.text = gameName
             return cell
         }
         
@@ -80,12 +80,18 @@ class SearchForGamesVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath) as! DisplayGameCell
         let gameData = retrievedArray[indexPath.row]
-        let gameName = gameData["name"] as! String
-        let cellImage: NSData = UIImagePNGRepresentation(cell.gameImage.image!)!
-        let deck = gameData["deck"] as! String
-        let info = gameData["description"] as! String
-        let siteURL = gameData["site_detail_url"] as! String
-        let id = gameData["id"] as! Int
+        let gameName = gameData["name"]
+        let cellImage: NSData
+        if cell.gameImage.image != nil {
+            cellImage = UIImagePNGRepresentation(cell.gameImage.image!)!
+        } else {
+            print("No Image Data returning")
+            return
+        }
+        let deck = gameData["deck"]
+        let info = gameData["description"]
+        let siteURL = gameData["site_detail_url"]
+        let id = gameData["id"]
         
         let testArray = [gameName, cellImage, deck, info, siteURL, id]
         for item in testArray {
@@ -95,16 +101,11 @@ class SearchForGamesVC: UIViewController, UITableViewDelegate, UITableViewDataSo
             }
         }
         
-        let savedGame = Game(gameName: gameName, thumbNail: cellImage, gameDeck: deck, gameInfo: info, siteURL: siteURL, id: id, context: sharedContext)
+        let savedGame = Game(gameName: gameName as! String, thumbNail: cellImage, gameDeck: deck as! String, gameInfo: info as! String, siteURL: siteURL as! String, id: id as! Int, context: sharedContext)
         
-        print("\(savedGame)")
+        print("Saved game \(savedGame.name)")
         
-        print("Game name: \(gameName)")
-        print("Game image: \(cellImage)")
-        print("Game deck: \(deck)")
-        print("Game info: \(info)")
-        print("Game url: \(siteURL)")
-        print("Game id: \(id)")
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     //MARK: - SEARCH
