@@ -125,7 +125,7 @@ class SearchForGamesVC: UIViewController, UITableViewDelegate, UITableViewDataSo
                     self.toggleActivityView(false)
                 })
             } else {
-                self.displayAlertView("No Data Retrieved", header: "Error")
+                self.displayAlertView("No Data Retrieved", header: "Oops!")
                 self.toggleActivityView(false)
                 return
             }

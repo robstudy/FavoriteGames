@@ -8,8 +8,8 @@
 
 import Foundation
 
-
 class GiantBombAPI: NSObject {
+    
     static let sharedSession = GiantBombAPI()
     private let session = NSURLSession.sharedSession()
     
@@ -24,8 +24,6 @@ class GiantBombAPI: NSObject {
                 composedWord += String(character)
             }
         }
-        
-        print(composedWord)
         
         let urlString = "\(GiantBombAPI.Keys.BASE_URL)api_key=\(GiantBombAPI.Keys.API_KEY)&format=json&query=\(composedWord)&limit=15&resources=game"
         let url = NSURL(string: urlString)!

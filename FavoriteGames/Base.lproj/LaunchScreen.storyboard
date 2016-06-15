@@ -50,11 +50,32 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Data from Giantbomb.com!" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4fm-Pt-Z9f">
+                                <rect key="frame" x="170" y="307" width="260" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="260" id="5AG-ZO-ePZ"/>
+                                    <constraint firstAttribute="height" constant="40" id="TZk-Na-Rnv"/>
+                                    <constraint firstAttribute="width" constant="150" id="dlA-Aj-3it"/>
+                                    <constraint firstAttribute="width" constant="260" id="qxM-hK-Gjw"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="5AG-ZO-ePZ"/>
+                                        <exclude reference="dlA-Aj-3it"/>
+                                    </mask>
+                                </variation>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.19215686269999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="cYu-xA-oUJ" firstAttribute="centerX" secondItem="4sm-oM-VII" secondAttribute="centerX" id="0nf-qs-6y0"/>
+                            <constraint firstItem="4fm-Pt-Z9f" firstAttribute="centerX" secondItem="cYu-xA-oUJ" secondAttribute="centerX" id="1Va-7v-yjY"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="cYu-xA-oUJ" secondAttribute="bottom" constant="301" id="DvV-N7-m9R"/>
+                            <constraint firstItem="4fm-Pt-Z9f" firstAttribute="top" secondItem="cYu-xA-oUJ" secondAttribute="bottom" constant="8" symbolic="YES" id="RhR-uc-A7p"/>
                             <constraint firstItem="cYu-xA-oUJ" firstAttribute="leading" secondItem="Gyi-S9-6Wv" secondAttribute="leading" id="Vyv-fP-sse"/>
                             <constraint firstItem="cYu-xA-oUJ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="WjT-wh-e25"/>
                             <constraint firstItem="cYu-xA-oUJ" firstAttribute="top" secondItem="Gyi-S9-6Wv" secondAttribute="bottom" constant="8" symbolic="YES" id="Ww2-q5-5uP"/>

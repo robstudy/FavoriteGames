@@ -41,6 +41,8 @@ class GameDetailVC: UIViewController, NSFetchedResultsControllerDelegate {
         detailView.loadHTMLString(gameData.info!, baseURL: nil)
     }
     
+    //MARK: - IBActions
+    
     @IBAction func goToGiantBomb(sender: AnyObject) {
         if let url = NSURL(string: gameData.siteUrl!) {
             if UIApplication.sharedApplication().canOpenURL(url) {
@@ -56,6 +58,8 @@ class GameDetailVC: UIViewController, NSFetchedResultsControllerDelegate {
         sharedContext.deleteObject(gameData)
         self.navigationController?.popViewControllerAnimated(true)
     }
+    
+    //MARK: - Alert View
     
     private func displayAlertView() {
         let okPress = UIAlertAction(title: "OK", style: .Default) { action in
