@@ -55,11 +55,6 @@ class GiantBombAPI: NSObject {
             }
             
             let resultsArray = results["results"] as! NSArray
-            for items in resultsArray {
-                print(items["deck"])
-                print(items["description"])
-                print(items["site_detail_url"])
-            }
             
             completion(gameData: resultsArray)
         }

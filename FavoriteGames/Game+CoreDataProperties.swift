@@ -19,5 +19,6 @@ extension Game {
     @NSManaged var deck: String?
     @NSManaged var info: String?
     @NSManaged var siteUrl: String?
+    @NSManaged var gameId: NSNumber?
 
 }

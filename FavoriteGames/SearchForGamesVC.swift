@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class SearchForGamesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -29,13 +30,17 @@ class SearchForGamesVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         super.didReceiveMemoryWarning()
     }
     
-    //MARK: - TABLE VIEW
+    //MARK: - TABLEVIEW DATA SOURCE & DELEGATE
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("displayGameCell", forIndexPath: indexPath) as! DisplayGameCell
         cell.gameNameText.textColor = UIColor.whiteColor()
-        
         let game = retrievedArray[indexPath.row]
         let gameName = game["name"] as! String
+        let textAttributes = NSAttributedString(string: gameName, attributes:[
+            NSForegroundColorAttributeName: UIColor.whiteColor(),
+            NSFontAttributeName: UIFont(name: "Helvetica Neue", size: 30)!,
+            ])
+        
         guard let imageDictionary = game["image"] as? NSDictionary else {
             cell.gameNameText.text = gameName
             return cell
@@ -51,20 +56,16 @@ class SearchForGamesVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         }
         
         guard let imageData = NSData(contentsOfURL: NSURL(string: imageurl)!) else {
-            cell.gameNameText.text = gameName
+            cell.gameNameText.text = "Could not retrieve text!"
             return cell
         }
         
         guard let myImage =  UIImage(data: imageData) else {
-            cell.gameNameText.text = gameName
+            cell.gameNameText.text = "Could not retrieve text!"
             return cell
         }
         
         cell.gameNameText.textColor = UIColor.whiteColor()
-        let textAttributes = NSAttributedString(string: gameName, attributes:[
-            NSForegroundColorAttributeName: UIColor.whiteColor(),
-            NSFontAttributeName: UIFont(name: "Helvetica Neue", size: 30)!,
-            ])
         cell.gameNameText.attributedText = textAttributes
         cell.gameNameText.textAlignment = NSTextAlignment.Center
         cell.gameNameText.textAlignment = .Center
@@ -76,9 +77,43 @@ class SearchForGamesVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         return retrievedArray.count
     }
     
-    //MARK: - Search
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as! DisplayGameCell
+        let gameData = retrievedArray[indexPath.row]
+        let gameName = gameData["name"] as! String
+        let cellImage: NSData = UIImagePNGRepresentation(cell.gameImage.image!)!
+        let deck = gameData["deck"] as! String
+        let info = gameData["description"] as! String
+        let siteURL = gameData["site_detail_url"] as! String
+        let id = gameData["id"] as! Int
+        
+        let testArray = [gameName, cellImage, deck, info, siteURL, id]
+        for item in testArray {
+            if item is NSNull {
+                print("returning due to null item")
+                return
+            }
+        }
+        
+        let savedGame = Game(gameName: gameName, thumbNail: cellImage, gameDeck: deck, gameInfo: info, siteURL: siteURL, id: id, context: sharedContext)
+        
+        print("\(savedGame)")
+        
+        print("Game name: \(gameName)")
+        print("Game image: \(cellImage)")
+        print("Game deck: \(deck)")
+        print("Game info: \(info)")
+        print("Game url: \(siteURL)")
+        print("Game id: \(id)")
+    }
+    
+    //MARK: - SEARCH
     
     @IBAction func searchForGames(sender: AnyObject) {
+        retrievedArray = []
+        dispatch_async(dispatch_get_main_queue(), {
+            self.tableView.reloadData()
+        })
         let gameText = searchTextField.text
         toggleActivityView(true)
         GiantBombAPI.sharedSession.getGameData(gameText!, completion: { description in
@@ -96,6 +131,8 @@ class SearchForGamesVC: UIViewController, UITableViewDelegate, UITableViewDataSo
             }
         })
     }
+    
+    //MARK: - PRIVATE UI FUNCTIONS
     
     private func configureButton() {
         searchButton.layer.borderWidth = 2.0
@@ -124,4 +161,15 @@ class SearchForGamesVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         })
     }
     
+    private func displayAlertView() {
+        
+        dispatch_async(dispatch_get_main_queue(), {
+            
+        })
+    }
+    
+    //MARK: - CORE DATA SHARED CONTEXT
+    var sharedContext: NSManagedObjectContext {
+        return CoreDataStackManager.sharedInstance().managedObjectContext
+    }
 }
