@@ -1,5 +1,5 @@
 //
-//  GameDetalVC.swift
+//  GameDetailVC.swift
 //  FavoriteGames
 //
 //  Created by Robert Garza on 6/15/16.
@@ -15,7 +15,6 @@ class GameDetailVC: UIViewController, NSFetchedResultsControllerDelegate {
     @IBOutlet weak var gameDeckText: UITextView!
     @IBOutlet weak var gameImage: UIImageView!
     @IBOutlet weak var goToSiteButton: UIButton!
-    @IBOutlet weak var detailView: UIWebView!
     var gameData: Game!
     
     override func viewDidLoad() {
@@ -36,9 +35,7 @@ class GameDetailVC: UIViewController, NSFetchedResultsControllerDelegate {
         goToSiteButton.layer.cornerRadius = 8.0
         gameImage.image = UIImage(data: gameData.thumbnail!)
         gameDeckText.text = gameData.deck
-        detailView.layer.borderColor = UIColor.blackColor().CGColor
-        detailView.layer.borderWidth = 2.0
-        detailView.loadHTMLString(gameData.info!, baseURL: nil)
+        gameDeckText.font = UIFont(name: "Helvetica Neue", size: 20)!
     }
     
     //MARK: - IBActions
